@@ -42,11 +42,13 @@ const Header = () => {
           }
         }}
          className="flex items-center
-         gap-2 border-blue-700 border px-2
+         gap-2 md:border-blue-700 xl:border-blue-700 md:border xl:border xl:px-2 md:px-2
           shadow-sm shadow-blue-500 bg-blue-50 rounded-2xl  text-blue-700 cursor-pointer " >
           <div className="flex items-center gap-2">
-            <CgProfile />
-            <h5>Benjamin Eze </h5>
+            <CgProfile  
+            className="text-3xl xl:text-2xl md:text-xl "
+            />
+            <h5 className="hidden xl:block md:block">Benjamin Eze </h5>
           </div>
         </div>
 
@@ -55,11 +57,11 @@ const Header = () => {
           {
             displayAuth && (
              
-                <div className="flex flex-col border-2 px-6 gap-4 bg-white  shadow-white shadow-sm p-2 rounded-xl border-gray-300 absolute right-3 top-15 ">
+                <div className="flex flex-col border-2 px-6 gap-4 bg-white  shadow-white shadow-sm p-2 rounded-xl border-blue-700 absolute right-3 top-15 ">
           <button className="border-b-2 rounded-xl p-1 shadow-2xl bg-white cursor-pointer
          hover:border-b-7 hover:border-blue-700">Login</button>
          <button className="border-b-2 rounded-xl p-1 shadow-2xl bg-white cursor-pointer
-           hover:border-b-7 hover:border-blue-700">Logout</button>
+           hover:border-b-7 hover:border-red-700">Logout</button>
         <button className="border-b-2 rounded-xl p-1 shadow-2xl bg-white cursor-pointer
         hover:border-b-7 hover:border-blue-700 ">Signin</button>
           </div>

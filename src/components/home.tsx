@@ -16,7 +16,7 @@ const Home = () => {
           </h1>
 
           <p className="mt-5 max-w-xl text-lg leading-8 text-slate-600">
-            Scan your resume against a description and get instant feedback to on how well the resume performed.
+            Scan your CV or resume against a description and get instant feedback on how well the CV or resume performed.
           </p>
 
           <div className="mt-7 flex flex-wrap gap-3">
