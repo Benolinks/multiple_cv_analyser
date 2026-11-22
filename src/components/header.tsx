@@ -1,5 +1,5 @@
 import { PiToolboxFill } from "react-icons/pi";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { useState } from "react";
 
@@ -20,6 +20,7 @@ const Header = () => {
           <span className="grid size-11 place-items-center rounded-xl bg-blue-600 text-white shadow-md shadow-blue-200">
             <PiToolboxFill className="size-7" />
           </span>
+        
           <h1 className="text-xl font-bold tracking-tight sm:text-2xl">
             CV <span className="text-blue-700">Analyzer</span>
           </h1>
@@ -58,12 +59,12 @@ const Header = () => {
             displayAuth && (
              
                 <div className="flex flex-col border-2 px-6 gap-4 bg-white  shadow-white shadow-sm p-2 rounded-xl border-blue-700 absolute right-3 top-15 ">
-          <button className="border-b-2 rounded-xl p-1 shadow-2xl bg-white cursor-pointer
-         hover:border-b-7 hover:border-blue-700">Login</button>
-         <button className="border-b-2 rounded-xl p-1 shadow-2xl bg-white cursor-pointer
-           hover:border-b-7 hover:border-red-700">Logout</button>
-        <button className="border-b-2 rounded-xl p-1 shadow-2xl bg-white cursor-pointer
-        hover:border-b-7 hover:border-blue-700 ">Signin</button>
+          <Link to="/login" className="border-b-2 rounded-xl p-1 shadow-2xl bg-white cursor-pointer
+         hover:border-b-7 hover:border-blue-700">Login</Link>
+         <Link to="/logout" className="border-b-2 rounded-xl p-1 shadow-2xl bg-white cursor-pointer
+           hover:border-b-7 hover:border-red-700">Logout</Link>
+        <Link to="/signup" className="border-b-2 rounded-xl p-1 shadow-2xl bg-white cursor-pointer
+        hover:border-b-7 hover:border-blue-700 ">Sign up</Link>
           </div>
 
             )

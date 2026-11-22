@@ -85,10 +85,13 @@ const Login = () => {
           </button>
         </form>
             
-        <div className="border rounded-xl hover:text-white hover:bg-blue-800 py-3  my-3 mt-8">
+        <div className="border
+         rounded-xl hover:text-white
+          hover:bg-blue-800 py-3  my-3 mt-8
+          transition-all duration-500">
             <Link 
             className=" flex items-center justify-center"
-            to="/signin">
+            to="/signup">
           CREATE AN ACCOUNT 
         </Link>
         </div> 

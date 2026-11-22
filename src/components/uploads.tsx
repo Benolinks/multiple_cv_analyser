@@ -27,7 +27,6 @@ const fileupload = useRef<HTMLInputElement>(null)
     }
 
     const handleDrag = (event:React.DragEvent<HTMLElement>)=>{
-        const handleDrag = event.dataTransfer.files?.[0]
         event.preventDefault()
         console.log(handleDrag)
 

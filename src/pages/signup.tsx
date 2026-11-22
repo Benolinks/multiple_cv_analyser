@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 
-const Signin = () => {
+const Signup = () => {
   return (
     <main className="grid min-h-screen place-items-center px-4 py-10">
       <section className="w-full max-w-md rounded-3xl border border-slate-200/80 bg-white p-6 shadow-xl shadow-slate-200/60 sm:p-8">
@@ -17,14 +17,28 @@ const Signin = () => {
         </Link>
 
         <div className="mt-7 text-center">
-          <h1 className="text-2xl font-bold text-slate-900">Sign in</h1>
+          <h1 className="text-2xl font-bold text-slate-900">Create account</h1>
           <p className="mt-2 text-sm text-slate-500">
-            Welcome back. Please enter your account details.
+            Enter your details to create a new account.
           </p>
         </div>
 
-        <form action="/login" method="post" className="mt-7 space-y-5">
-         
+        <form action="/register" method="post" className="mt-7 space-y-5">
+          <div>
+            <label htmlFor="name" className="mb-2 block text-sm font-semibold text-slate-700">
+              Name
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              autoComplete="name"
+              required
+              autoFocus
+              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-100"
+              placeholder="Your name"
+            />
+          </div>
 
           <div>
             <label htmlFor="email" className="mb-2 block text-sm font-semibold text-slate-700">
@@ -36,7 +50,6 @@ const Signin = () => {
               type="email"
               autoComplete="email"
               required
-              autoFocus
               className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-100"
               placeholder="you@example.com"
             />
@@ -50,32 +63,39 @@ const Signin = () => {
               id="password"
               name="password"
               type="password"
-              autoComplete="current-password"
+              autoComplete="new-password"
               required
               className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-100"
               placeholder="Enter your password"
             />
           </div>
 
-          <label className="flex items-center gap-2 text-sm text-slate-600">
+          <div>
+            <label htmlFor="password_confirmation" className="mb-2 block text-sm font-semibold text-slate-700">
+              Confirm password
+            </label>
             <input
-              type="checkbox"
-              name="remember"
-              value="1"
-              className="size-4 rounded border-slate-300 text-blue-700 focus:ring-blue-500"
+              id="password_confirmation"
+              name="password_confirmation"
+              type="password"
+              autoComplete="new-password"
+              required
+              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-100"
+              placeholder="Confirm your password"
             />
-            Remember me
-          </label>
+          </div>
 
           <button
             type="submit"
             className="w-full rounded-xl bg-blue-700 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-200 transition hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-200"
           >
-            Sign in
+            Sign up
           </button>
         </form>
 
-        <div className="border rounded-xl hover:text-white hover:bg-blue-800 py-3 my-3 mt-8">
+        <div className="border rounded-xl
+         hover:text-white hover:bg-blue-800
+          py-3 my-3 mt-8 transition-all duration-500">
             <Link 
             className=" flex items-center justify-center"
             to="/login">
@@ -87,4 +107,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Signup;
