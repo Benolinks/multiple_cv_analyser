@@ -43,9 +43,6 @@ const fileupload = useRef<HTMLInputElement>(null)
 
   return (
 
-
-
-
     <main className="min-h-[calc(100vh-100px)] px-4 pb-10 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-[0.8fr_1.2fr]">
         <section className="rounded-3xl border border-slate-200/80 bg-white p-5 shadow-xl shadow-slate-200/50 sm:p-7">
@@ -61,6 +58,7 @@ const fileupload = useRef<HTMLInputElement>(null)
 
             <input 
             type="file"
+            accept=".pdf, docs"
             multiple
             onChange={handleFileChange}
             ref={fileupload}
@@ -106,7 +104,8 @@ const fileupload = useRef<HTMLInputElement>(null)
 
         <section className="rounded-3xl border border-slate-200/80 bg-white p-5 shadow-xl shadow-slate-200/50 sm:p-7">
           <div className="flex items-center justify-between gap-4 border-b border-slate-100 pb-5">
-            <div className="flex items-center gap-3">
+            
+            <div className="flex items-center ">
               <span className="grid size-11 place-items-center rounded-xl bg-blue-50 text-blue-700">
                 <MdBarChart className="text-2xl" />
               </span>
@@ -118,8 +117,21 @@ const fileupload = useRef<HTMLInputElement>(null)
           </div>
 
           <div className="mt-6 grid items-center gap-6 sm:grid-cols-[190px_1fr]">
-            <div className="mx-auto grid size-36 place-items-center rounded-full border-12 border-green-100 bg-white shadow-inner">
-              <span className="text-center text-3xl font-bold text-slate-900">
+            
+            <div className=" mx-auto flex justify-center text-center items-center w-32 h-32 rounded-full" 
+            style={{
+              background:"conic-gradient(green 87%, white 87%)"
+            }}
+            >
+              <span className="text-center 
+              text-3xl font-bold
+              
+               w-24 h-24  flex justify-center
+                items-center
+                bg-white
+                rounded-full
+                m-auto
+               ">
                 87%
               </span>
             </div>
