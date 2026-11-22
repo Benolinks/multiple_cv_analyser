@@ -11,6 +11,11 @@ const Uploads = () => {
     // useState 
 const [files, setFiles] = useState<File[]>([]);
 
+const [jobDescription, setJobDescription] = useState<string>("")
+
+const [error, setError] = useState<string>("")
+
+const [loading, setloading] = useState<boolean>(false)
 // useRef
 const fileupload = useRef<HTMLInputElement>(null)
 
@@ -21,14 +26,16 @@ const fileupload = useRef<HTMLInputElement>(null)
     const handleDrop = (event:React.DragEvent<HTMLElement>)=>{
         event.preventDefault()
 
-        const fileDropped = event.dataTransfer.files?.[0]
-        console.log(fileDropped)
+        const droppedFiles = Array.from(event.dataTransfer.files);
+
+  setFiles((prev) => [...prev, ...droppedFiles]);
+       
 
     }
 
     const handleDrag = (event:React.DragEvent<HTMLElement>)=>{
         event.preventDefault()
-        console.log(handleDrag)
+       
 
     }
 // input onchange function 
@@ -40,11 +47,60 @@ const fileupload = useRef<HTMLInputElement>(null)
   }
 };
 
+// onsubmit functions
+ const handleSubmit = async (e:React.FormEvent)=>{
+  e.preventDefault()
+
+  // Validation rule for files and  description
+  if (files.length ===0) {
+    setError("Please upload your resume ")
+    return
+    
+  }
+
+  if (!jobDescription.trim()) {
+    setError("please Enter a Targeted Description")
+    return
+  }
+
+  // if all validation passes through 
+
+   const formData = new FormData();
+
+  files.forEach((file) => {
+    formData.append("files[]", file);
+  });
+
+ formData.append("job_description", jobDescription);
+
+
+//  try {
+  
+//  } catch (error) {
+  
+//  }finally{
+
+//  }
+
+
+
+
+
+
+
+
+
+
+
+ }
+
 
   return (
 
     <main className="min-h-[calc(100vh-100px)] px-4 pb-10 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-[0.8fr_1.2fr]">
+
+        <form action="" onSubmit={handleSubmit} method="post">
         <section className="rounded-3xl border border-slate-200/80 bg-white p-5 shadow-xl shadow-slate-200/50 sm:p-7">
           <div className="flex items-center gap-3">
             <span className="grid size-11 place-items-center rounded-xl bg-blue-50 text-blue-700">
@@ -62,7 +118,7 @@ const fileupload = useRef<HTMLInputElement>(null)
             multiple
             onChange={handleFileChange}
             ref={fileupload}
-             />
+            hidden             />
           <div
           onClick={()=>{
             fileupload.current?.click()
@@ -88,6 +144,10 @@ const fileupload = useRef<HTMLInputElement>(null)
           <div className="mt-5">
             <label htmlFor="text" className="font-bold"> CV Required Description</label>
             <input
+            value={jobDescription}
+            onChange={(e)=>{
+              setJobDescription(e.target.value)
+            }}
               type="text"
               className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-100"
               placeholder="Enter target description"
@@ -95,12 +155,26 @@ const fileupload = useRef<HTMLInputElement>(null)
           </div>
 
           <button
-            type="button"
+          disabled={loading}
+            type="submit"
             className="mt-5 w-full rounded-xl bg-blue-900 py-3.5 text-sm font-bold text-white shadow-lg shadow-slate-200 transition hover:bg-blue-700"
           >
-            Analyze Resume
+            {
+              loading ? "Analysing cv..." : "Analyse CV"
+            }
           </button>
+          {
+            error && (
+                <div className=" border
+         rounded-xl bg-red-600 text-center text-white my-3 mt-8
+          ">
+           <p>{error }</p> 
+        </div>
+            )
+          }
+         
         </section>
+        </form>
 
         <section className="rounded-3xl border border-slate-200/80 bg-white p-5 shadow-xl shadow-slate-200/50 sm:p-7">
           <div className="flex items-center justify-between gap-4 border-b border-slate-100 pb-5">
