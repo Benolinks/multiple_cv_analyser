@@ -28,7 +28,7 @@ const Header = () => {
 
         <nav className="hidden items-center gap-1 md:flex">
           <NavLink to="/" end className={navClass}>Home</NavLink>
-          <NavLink to="/Records" className={navClass}>Records</NavLink>
+          <NavLink to="/recordpage" className={navClass}>Records</NavLink>
         </nav>
 
         <div

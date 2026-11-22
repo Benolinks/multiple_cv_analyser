@@ -4,7 +4,7 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 
 import Home from './pages/homepage';
-import Records from './pages/recordpage';
+import Recordpage from './pages/recordpage';
 // import Logout from './logout';
 const App = () => {
   return (
@@ -12,7 +12,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path='/records' element={<Records/>}/>
+          <Route path='/recordpage' element={<Recordpage/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
         </Routes>
