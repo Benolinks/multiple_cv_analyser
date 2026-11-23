@@ -21,6 +21,7 @@ const Uploads = () => {
 
   const [loading, setloading] = useState<boolean>(false);
 
+
   // ==============================useRef=================
   const fileupload = useRef<HTMLInputElement>(null);
 
@@ -63,12 +64,15 @@ const Uploads = () => {
       return;
     }
 
-    //========================= if all validation passes through
+    //============== if all validation passes through
 
     const formData = new FormData();
 
-    formData.append("file", files[0]);
-    formData.append("jobDescription", jobDescription);
+    files.forEach((file) => {
+  formData.append("file[]", file);
+});
+
+formData.append("jobDescription", jobDescription);
 
     try {
       setloading(true);
@@ -78,16 +82,21 @@ const Uploads = () => {
 
       if (response.data.success === true) {
         // navigate('/recordpage')
+       
         setSuccess(response.data.message);
+
       }
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
-        setError(error.response?.data?.message || "A problem was encountered");
+        setError(error.response?.data?.errors );
       } else {
         setError("Something went wrong ");
       }
     } finally {
       setloading(false);
+      setSuccess(" Plesae wait for your result");
+      
+
       
     }
   };
